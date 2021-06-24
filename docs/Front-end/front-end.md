@@ -1,0 +1,4 @@
+---
+slug: /
+---
+Lorem ipsum
