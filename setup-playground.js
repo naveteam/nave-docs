@@ -1,16 +1,17 @@
 export default (() => {
   const setSnackColorScheme = () => {
     const theme = document.querySelector("html").getAttribute("data-theme");
-    document.querySelectorAll(".snack-player").forEach((playground) => {
-      playground.setAttribute("data-snack-theme", theme);
-      window.ExpoSnack && window.ExpoSnack.remove(playground);
-      window.ExpoSnack && window.ExpoSnack.append(playground);
+    document.querySelectorAll(".snack-player iframe").forEach((iframe) => {
+      const [sourceWithoutColorScheme] = iframe
+        .getAttribute("src")
+        .split("&theme=");
+      iframe.setAttribute("src", `${sourceWithoutColorScheme}&theme=${theme}`);
     });
   };
 
   const initializeSnack = () => {
-    setSnackColorScheme();
     window.ExpoSnack && window.ExpoSnack.initialize();
+    setSnackColorScheme();
   };
 
   new MutationObserver(() => setSnackColorScheme()).observe(
