@@ -1,4 +1,4 @@
 # mobile
 
-```Playground id=@powilliam.kt/anxious-popsicle
+```Playground id=@powilliam.kt/anxious-popsicle&platform=ios&theme=dark&platforms=ios,android
 ```

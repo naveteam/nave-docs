@@ -10,39 +10,21 @@ const parse = async (node, parent) => {
 
   const params = extract(node.meta);
 
-  // const dataSnackName = params.name
-  //   ? encodeURIComponent(params.name)
-  //   : "Playground";
-  // const dataSnackDescription = params.description
-  //   ? encodeURIComponent(params.description)
-  //   : "";
-  // const dataSnackCode = encodeURIComponent(node.value);
-  // const dataSnackDependencies = encodeURIComponent(params.dependencies || "");
-  // const dataSnackPlatform = encodeURIComponent(params.platform || "web");
-  // const dataSnackSupportedPlatforms = encodeURIComponent(
-  //   params.platforms || "ios,android,web"
-  // );
-  // const dataSnackTheme = encodeURIComponent(params.theme || "light");
-  // const dataSnackPreview = encodeURIComponent(params.preview || true);
-  // const dataSnackLoading = encodeURIComponent(params.loading || "lazy");
+  const dataSnackPlatform = encodeURIComponent(params.platform || "web");
+  const dataSnackSupportedPlatforms = encodeURIComponent(
+    params.platforms || "ios,android,web"
+  );
+  const dataSnackLoading = encodeURIComponent(params.loading || "lazy");
 
-  // data-snack-name="${dataSnackName}"
-  // data-snack-description="${dataSnackDescription}"
-  // data-snack-code="${dataSnackCode}"
-  // data-snack-dependencies="${dataSnackDependencies}"
-  // data-snack-platform="${dataSnackPlatform}"
-  // data-snack-supported-platforms="${dataSnackSupportedPlatforms}"
-  // data-snack-theme="${dataSnackTheme}"
-  // data-snack-preview="${dataSnackPreview}"
-  // data-snack-loading="${dataSnackLoading}"
-  
   const snack = u("html", {
     value: dedent`
       <div
         class="snack-player"
         data-snack-id="${params.id}"
-        style="overflow:hidden;border:1px solid rgba(0,0,0,.08);border-radius:4px;height:805px;width:100%"
-      >
+        data-snack-platform="${dataSnackPlatform}"
+        data-snack-supported-platforms="${dataSnackSupportedPlatforms}"
+        data-snack-loading="${dataSnackLoading}"
+        style="overflow:hidden;border:1px solid rgba(0,0,0,.08);border-radius:4px;height:705px;width:100%">
       </div>
     `,
   });
