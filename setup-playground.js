@@ -2,10 +2,13 @@ export default (() => {
   const setSnackColorScheme = () => {
     const theme = document.querySelector("html").getAttribute("data-theme");
     document.querySelectorAll(".snack-player iframe").forEach((iframe) => {
-      const [sourceWithoutColorScheme] = iframe
+      const [sourceWithoutColorScheme, currentColorScheme] = iframe
         .getAttribute("src")
         .split("&theme=");
-      iframe.setAttribute("src", `${sourceWithoutColorScheme}&theme=${theme}`);
+
+      if (theme !== currentColorScheme) {
+        iframe.setAttribute("src", `${sourceWithoutColorScheme}&theme=${theme}`);
+      }  
     });
   };
 
