@@ -10,6 +10,12 @@ const parse = async (node, parent) => {
 
   const params = extract(node.meta);
 
+  const dataSnackName =
+    !!params.name && `data-snack-name="${encodeURIComponent(params.name)}`;
+  const uriUseCaseCode = encodeURIComponent(node.value || "");
+  const dataSnackCode = !!params.id
+    ? `data-snack-id="${params.id}"`
+    : `data-snack-code=${uriUseCaseCode}`;
   const dataSnackPlatform = encodeURIComponent(params.platform || "web");
   const dataSnackSupportedPlatforms = encodeURIComponent(
     params.platforms || "ios,android,web"
@@ -19,8 +25,9 @@ const parse = async (node, parent) => {
   const snack = u("html", {
     value: dedent`
       <div
+        ${dataSnackCode}
+        ${dataSnackName}
         class="snack-player"
-        data-snack-id="${params.id}"
         data-snack-platform="${dataSnackPlatform}"
         data-snack-supported-platforms="${dataSnackSupportedPlatforms}"
         data-snack-loading="${dataSnackLoading}"
