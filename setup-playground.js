@@ -7,14 +7,19 @@ export default (() => {
         .split("&theme=");
 
       if (theme !== currentColorScheme) {
-        iframe.setAttribute("src", `${sourceWithoutColorScheme}&theme=${theme}`);
-      }  
+        iframe.setAttribute(
+          "src",
+          `${sourceWithoutColorScheme}&theme=${theme}`
+        );
+      }
     });
   };
 
   const initializeSnack = () => {
-    window.ExpoSnack && window.ExpoSnack.initialize();
-    setSnackColorScheme();
+    setTimeout(() => {
+      window.ExpoSnack && window.ExpoSnack.initialize();
+      setSnackColorScheme();
+    }, 0);
   };
 
   new MutationObserver(() => setSnackColorScheme()).observe(
@@ -25,11 +30,13 @@ export default (() => {
     }
   );
 
+  window.onload = () => {
+    initializeSnack();
+  };
+
   return {
     onRouteUpdate() {
-      setTimeout(() => {
-        initializeSnack();
-      }, 0);
+      initializeSnack();
     },
   };
 })();
