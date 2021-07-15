@@ -1,39 +1,26 @@
 module.exports = {
-  mySidebar: [
-    { type: "doc", label: "Início", id: "home" },
-    {
-      type: "category",
-      label: "Back-end",
-      items: [
-        {
-          type: "category",
-          label: "Guias",
-          items: [
-            {
-              id: "back-end/guides/boilerplates",
-              label: "Boilerplates",
-              type: "doc",
-            },
-          ],
-        },
-      ],
-    },
-    {
-      type: "category",
-      label: "Front-end",
-      items: [
-        {
-          type: "category",
-          label: "Guias",
-          items: [
-            {
-              id: "front-end/guides/boilerplates",
-              label: "Boilerplates",
-              type: "doc",
-            },
-          ],
-        },
-      ],
-    },
-  ],
+  mySidebar: {
+    Início: [{ id: "home", label: "nave", type: "doc" }],
+    "Back-end": [
+      {
+        Guias: ["back-end/guides/boilerplates"],
+      },
+    ],
+    "Front-end": [
+      {
+        Guias: ["front-end/guides/boilerplates"],
+      },
+      {
+        "Casos de uso": [
+          {
+            Hooks: ["front-end/use-cases/hooks/use-device"],
+          },
+          {
+            Helpers: ["front-end/use-cases/helpers/formatCurrency"],
+          },
+        ],
+      },
+    ],
+    Mobile: ["mobile/mobile"],
+  },
 };
