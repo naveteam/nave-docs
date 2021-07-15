@@ -12,6 +12,7 @@ module.exports = {
   favicon: 'img/favicon.ico',
   organizationName: 'naveteam',
   projectName: 'nave-docs',
+  clientModules: [require.resolve('./setup-playground.js')],
   themeConfig: {
     navbar: {
       title: '',
@@ -36,6 +37,12 @@ module.exports = {
       darkTheme: darkCodeTheme,
     },
   },
+  scripts: [
+    {
+      src: 'https://snack.expo.io/embed.js', 
+      defer: true
+    },
+  ],
   presets: [
     [
       '@docusaurus/preset-classic',
@@ -44,6 +51,7 @@ module.exports = {
           routeBasePath: '/',
           sidebarPath: require.resolve('./sidebars.js'),
           editUrl: 'https://github.com/naveteam/nave-docs',
+          remarkPlugins: [require('./src/remarks/playground')],
         }
       },
     ],
