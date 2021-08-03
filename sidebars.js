@@ -21,6 +21,10 @@ module.exports = {
         ],
       },
     ],
-    Mobile: ["mobile/mobile"],
+    Mobile: [
+      {"Casos de uso": [
+        {Components: ["mobile/use-cases/components/autocomplete"]}
+      ]}
+    ],
   },
 };
