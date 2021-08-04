@@ -6,14 +6,14 @@ Esse componente é uma demonstração de como pode ser implementada uma FlatList
 
 ```Playground id=@guiwm/animated-horizontal-flatlist&platforms=android,ios
 import React, { useRef } from 'react'
-import { View, FlatList, StyleSheet, useWindowDimensions, Dimensions, Animated } from 'react-native'
+import { View, FlatList, StyleSheet, useWindowDimensions, Animated } from 'react-native'
 
-const { width } = Dimensions.get('window')
-
-const ITEM_SIZE = width * 0.5 + 10
-const EMPTY_ITEM_SIZE = (width - ITEM_SIZE) / 2
 
 const HorizontalFlatList = ({data = [...Array(10).keys()]}) => {
+  const { width } = useWindowDimensions()
+  const ITEM_SIZE = width * 0.5 + 10
+  const EMPTY_ITEM_SIZE = (width - ITEM_SIZE) / 2
+
   const scrollX = useRef(new Animated.Value(0)).current
 
   const NEW_DATA = [{ ghost: true }, ...data, { ghost: true }]
@@ -41,7 +41,8 @@ const HorizontalFlatList = ({data = [...Array(10).keys()]}) => {
             return <View style={{ width: EMPTY_ITEM_SIZE, height: 20 }} />
           }
 
-          return <Animated.View style={{ ...styles.card, transform: [{ translateY }] }} />
+          return <Animated.View style={{ ...styles.card, width: 0.5 * width,
+          transform: [{ translateY }] }} />
         }}
         onScroll={Animated.event([{ nativeEvent: { contentOffset: { x: scrollX } } }], {
           useNativeDriver: false
@@ -56,7 +57,6 @@ const styles = StyleSheet.create({
     flex: 1
   },
   card: {
-    width: 0.5 * width,
     height: 300,
     backgroundColor: 'rgb(102, 0, 202)',
     marginLeft: 10,
@@ -65,8 +65,6 @@ const styles = StyleSheet.create({
 })
 
 export default HorizontalFlatList
-
-
 ```
 
 <br />
