@@ -23,7 +23,7 @@ module.exports = {
     ],
     Mobile: [
       {"Casos de uso": [
-        {Components: ["mobile/use-cases/components/autocomplete"]}
+        {Components: ["mobile/use-cases/components/autocomplete", "mobile/use-cases/components/horizontalFlatList"]}
       ]}
     ],
   },
