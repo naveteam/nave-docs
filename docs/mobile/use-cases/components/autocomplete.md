@@ -4,7 +4,7 @@ Esse componente tem como finalidade substituir selects que possuem muitas opçõ
 
 <br />
 
-```Playground platforms=android,ios
+```Playground id=@guiwm/autocomplete&platforms=android,ios
 import React, { useState, useMemo, useEffect } from 'react'
 import { Text, View, StyleSheet, Keyboard, TextInput, ScrollView } from 'react-native'
 import { TouchableOpacity } from 'react-native-gesture-handler'
