@@ -1,4 +1,10 @@
+import ExecutionEnvironment from "@docusaurus/ExecutionEnvironment";
+
 export default (() => {
+  if (!ExecutionEnvironment.canUseDOM) {
+    return null;
+  }
+
   const setSnackColorScheme = () => {
     const theme = document.querySelector("html").getAttribute("data-theme");
     document.querySelectorAll(".snack-player iframe").forEach((iframe) => {
@@ -9,7 +15,7 @@ export default (() => {
       if (theme !== currentColorScheme) {
         iframe.setAttribute(
           "src",
-          `${sourceWithoutColorScheme}&theme=${theme}`
+          `${sourceWithoutColorScheme}&theme=${theme}`,
         );
       }
     });
@@ -27,7 +33,7 @@ export default (() => {
     {
       attributes: true,
       attributeFilter: ["data-theme"],
-    }
+    },
   );
 
   window.onload = () => {
