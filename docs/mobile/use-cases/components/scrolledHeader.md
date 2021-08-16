@@ -79,12 +79,12 @@ const AnimatedHeader = () => {
         scrollEventThrottle={16}
         showsVerticalScrollIndicator={false}
       >
-        <View style={{ height: height - 100, alignItems: 'center', justifyContent: 'center' }}>
-          <Image source={arrowUp} style={{ height: 40 }} resizeMode='contain' />
-          <Text style={{ fontSize: 24 }}>Scroll Up</Text>
+        <View style={[{ height: height - 100}, styles.textContainer]}>
+          <Image source={arrowUp} style={styles.arrow} resizeMode='contain' />
+          <Text style={styles.subtitle}>Scroll Up</Text>
         </View>
 
-        <View style={{ height: 500 }} />
+        <View style={styles.hiddenView} />
       </Animated.ScrollView>
     </Fragment>
   )
@@ -108,10 +108,21 @@ const styles = StyleSheet.create({
   },
   logo: {
     height: 60,
-    width: 100,
+    width: 110,
     marginLeft: 20
+  },
+  arrow: {
+    height: 40
+  },
+  subtitle: {
+    fontSize: 24 
+  },
+  textContainer: {
+     alignItems: 'center', 
+     justifyContent: 'center'
+  },
+  hiddenView: {
+    height: 5000
   }
 })
-
-export default App
 ```
