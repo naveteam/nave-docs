@@ -68,13 +68,7 @@ const App = () => {
     <View style={styles.appContainer}>
         <ProgressBar total={100} completed={completed} showLabel/>
 
-        <TouchableOpacity style={styles.button} onPress={() => {
-          if (completed === 100) {
-            setCompleted(0)
-            return
-          }
-            setCompleted(completed + 20)
-        }}>
+        <TouchableOpacity style={styles.button} onPress={() => setCompleted(completed === TOTAL_PERCENTAGE ? 0 : completed + 20)}>
           <Text style={styles.buttonText}>Aumentar progresso</Text>
         </TouchableOpacity>
     </View>
