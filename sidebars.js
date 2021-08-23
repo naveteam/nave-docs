@@ -29,7 +29,8 @@ module.exports = {
             "mobile/use-cases/components/autocomplete", 
             "mobile/use-cases/components/horizontalFlatList", 
             "mobile/use-cases/components/modal",
-            "mobile/use-cases/components/progressBar"
+            "mobile/use-cases/components/progressBar",
+            "mobile/use-cases/components/snackBar"
           ]
         }
       ]}
