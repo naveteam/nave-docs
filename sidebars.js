@@ -33,6 +33,9 @@ module.exports = {
             "mobile/use-cases/components/snackBar"
           ]
         }
+      ]},
+      {"Guias": [
+        "mobile/guides/webviewDebugging"
       ]}
     ],
   },
