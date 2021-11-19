@@ -43,5 +43,12 @@ module.exports = {
         ],
       },
     ],
+    Tecnologia: [
+      {
+        id: "tecnologia/typescript",
+        label: "Typescript",
+        type: "doc",
+      },
+    ],
   },
 };
