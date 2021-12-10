@@ -325,3 +325,62 @@ function App() {
 Assim, contribuímos com um melhor intellisense, consequentemente com uma melhor experiência de desenvolvimento, pois todas as outras propriedades que dependem desse tipo `T extends Option<unkown>` refletirão o valor inferido pela inteligência da linguagem, além de conseguirmos fazer um bom uso desse recurso do TS. Caso tenha despertado a curiosidade do uso de tipos genéricos, dá uma conferida no Handbook:
 
 > **Documentação Generics:** [https://www.typescriptlang.org/docs/handbook/2/generics.html](https://www.typescriptlang.org/docs/handbook/2/generics.html)
+
+## Interface vs Types
+
+No exemplo anterior utilizamos a interfaces para criar a tipagem do nosso componente. Porém o TS fornece outras maneiras de criarmos essas tipagens, as principais são `interface` e `type`. Na grande maioria dos casos as duas formas trabalham exatamente da mesma forma, porém para criarmos uma boa cultura com typescript na Nave, vamos entender quando usar um e quando usar outro. Nos exemplos da documentação do do próprio TS é feita a recomendação de a maioria dos casos se usar `interface`, isso se deve a forma com que eles apresentam os erros na hora do desenvolvimento, em que interface acaba sendo mais objetivo nesse ponto.
+
+Segue o exemplo utilizado na doc para corroborar com essa decisão:
+
+> [TS Playground - An online editor for exploring TypeScript and JavaScript](https://www.typescriptlang.org/pt/play?#code/PTAEFEA8EsGcBcCmBbUATA9nU9oAcNZQ8AnaAOwGN8BDbPGkm9RSgG0cdGYDMMTkzNIlABXZAFgAUCFAYARgCtE8DAC5QFJCR41KiIiNwFYAOmnTZ4NgdCwAxxlDyUxRq2iZDbpt1CDofmghQlBKGlhCSzAeUSpA8hpUNGZkA0FQPgEacylpeABPPBEAFXwMAAUI2EYnAF5QAG9pUG4a2A0AJgBuaQBfXrypLUQdPREASXJtXX0q2BqSJ2apVoiIrsG+iylKDHIENwXagEYNMoJ5xfqmto3QTtAB6T2D+CPrzo0pmfGr2tADUadw6Dyeg2ioAq-AAjqIRE4SkUDJQyHh3gBLsSoWBwJAZYQ4WgAc1cBngJFE8FETDYkKxJlgAFuAG6INj+PE0rhOWCIURiSI4JLyDHIXIvfaHBjHJYAZm+01Gs0Q-yWgI+pwhMjAAEFkPJQrBRAQSPAkn5EJAkAdHCw5FSmEQRmN9N5jIRcrIAPJED1EXQAL1ccCFNApNBZGKIKU0SpIfIA53bCf6ADSQxDkOE0aZOF0qoiM+GocTMBgcFlMAC0lAAFpHEBKpIViqAAML8USKZhA0DkDDUkgDjQU+FPUAAMlAF0q1Vqg1bIgASgoKBrgQOhyPMjQ2HyJ9Ofsq-vOltqC+MoZGaE4rTa0ERZ2rli0whg2EFMKPKYhBq0WQwGgNF0fc-36aRL30UAAHE9woBtQHvLNH1AY9XVVM9X1Wd9PzIb9dzA-9QEA4DCL5LYdhsd49kpHsNE7Oje1udZQU6NN+0HGkdzHERnikajQGJeDyAbDQ4LYBDmOBViug4vY8M8dRyMQDjSJAvcD34yEShQpw0GgVRNAWJxyAAZ6IEhWAwNJyBSZBQkAygACu-FERY41+N1uHzcgoxjIxyjMSFwFgYpqD3WykGIWFxyc1yrP0Fx-HZOt+FsWyalJA57VGJYvTAABlEQZQ8pwHPckRInkKy5CQkgljUjAXJiwk2RIORDAa0I4QRGdkVgVF8HgSEAgDZqaC8HxmCg2w9gcvwJKk5taO7ZjhMk0SaEGDapI1Vae21WQAFUCQifw6HSmNoB4UYs0Tc6swpQKTCQzyT28rFeshWaiAcJwaBcM1HqJV7-syVgGy8Aq0JMuxoGJcgbvCUBepI5rXIIQlkLs0Z3owgL2E4OyMEhMs7EQYk4ljNlA2bWbYPDbDWiWchWbIw0P0QXNKKGBm4KMlZWlojQEDIchiV5yFoQ6jBHScDhMFB0JyDtLHXD5Dq920SbQiyGhIVjUgzNIYIWCJphkwwZsl1AAAxaA2DS6KgTfEW7ApChJf6bVbYdp3BxEV2cJqiheq8DRyHEIGtiOsAABFEGKXGSfQI1+SIBRlFwQDDGOdAbru8gHtaqrRkhExDOgFlmDl-tKfDauclAAA5O9plzTAOIYXwrVNTrlaLUR5Ek8IosQekUoDjqIwOLJkAAQ+rT9DFQX7m1kTsFvENOiDSafbESmlIiLTgSLx1QptCcIT-tdzSZ1e1-RI5140LDjEpslCklCAwahwOsVlJpp1AIVc0lAADWGB2o8E-AAd0hPNJwO9DSoAIHme0PdcApDUDsWQdZ4DwDwB0EACA9BQJgfA0w81gC9QQAkWAwA5QAHZOhyhYXKAArMAJcg00TwGrL9asLJYDVl4cAThnQABsAAOTo8iAAMABiSRsj5GdAUdIIAA)
+
+Mas quando saber o que deve ser usado para criar uma tipagem ou uma interface de dados? Pensando em criarmos um alinhamento para nossa cultura de desenvolvimento dentro da Nave com typescript, vamos pensar um pouco em programação orientada a objeto `(POO)` e entender o motivo ideal de se usar `interfaces` e `types`.
+
+Então pensando em POO, `interface` é uma definição de uma classe, e nela define tudo que pode ser utilizado dentro dessa mesma classe. Em typescript não muda o conceito, qualquer componente ou função que retorna ou recebe uma interface, pelo typescript conseguimos ter acesso as propriedades definidas através do _`intellisense`,_ se tentar acessar alguma propriedade não definida, será mostrado um erro sobre ela. Agora pensando em `types` , eles são para definir o tipo de uma propriedade dentro de uma interface ou uma variável, deve-se pensar como os tipos primitivos do javascript (`string`, `number`, etc), mas também podemos criar um objeto de dados para esse tipo, mas que ele seja usado no mesmo formato falado acima. A seguir temos exemplos no código para utilizar `interfaces` e `types` .
+
+1. Um exemplo prático de uso em conjunto de `interfaces` e `types`:
+
+```tsx
+type StatusStoreTypes = "open" | "closed"
+
+interface StoreProps {
+	storeStatus: StatusStoreTypes, // só pode receber o valor "open" ou "closed"
+	storeName: string
+}
+
+const storeData = (): StoreProps => {
+	...
+// essa função vai retornar os dados no formato da interface
+// informada acima para o retorno da função
+}
+```
+
+2. Adicionando uma `interface` para um componente `React`
+
+Para utilizar as propriedades em um componente, pensando em passar dados de um componente pai para um componente filho, conhecido como `Prop Drilling`, podemos utilizar `interfaces` para criar essas propriedades padrões e que podem ser concatenadas com o propriedades do `React Funcional Components` , só precisa passar no genérico do `React.FC`:
+
+```tsx
+const ComponentA: React.FC<StoreProps> = ({ storeName, children, ...props}) => ...
+// Podem ser acessadas na desestruturação propriedades da interface
+// e propriedades do React Funcional Components, como a prop children
+```
+
+> Sempre utilizar `interfaces` para as propriedades de componentes, retorno de funções e Generics.
+
+3. Quando usar `types`?
+
+Mesmo que `types` funcione da mesma forma que `interfaces`, como falado acima, devemos somente usar para definir um tipo de uma propriedade e para variaveis, mesmo que seja um objeto, veja os exemplos a seguir.
+
+```tsx
+type StudentProps = {
+  name: string
+  classId: string
+}
+
+interface SchoolProps {
+  students: Array<StudentProps>
+  ...
+}
+
+let student: StudentProps = { name: 'Daniel Nuñez', classId: '87344-384dasda-dada83488-afasdff' }
+```
