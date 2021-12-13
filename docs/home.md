@@ -11,3 +11,4 @@ Aqui no nave docs, você vai encontrar diversas informações que podem ser nece
 - [back-end](/back-end/guides/boilerplates)
 - [front-end](/front-end/guides/boilerplates)
 - [mobile](/mobile/mobile)
+- [infra](/infra/guides/boilerplates)
