@@ -8,14 +8,14 @@ Para configurar, primeiramente vá pra a pasta do Nginx:
 ```bash
 cd /etc/nginx/sites-available
 ```
-Edite o arquivo `default.conf` com o seu editor de texto preferido, removendo toda a configuração existente e usando a configuração abaixo:
+Edite o arquivo `default.conf` removendo toda a configuração existente e usando a configuração abaixo mudando a porta da aplicação na propriedade `proxy_pass`:
 
 ```
 server {
   server_name _;
 
   location / {
-    proxy_pass http://localhost:3000;
+    proxy_pass http://localhost:APP_PORT;
     proxy_http_version 1.1;
     proxy_set_header Upgrade $http_upgrade;
     proxy_set_header Connection 'upgrade';

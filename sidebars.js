@@ -57,8 +57,18 @@ module.exports = {
       Infraestrutura: [
         {
           Guias: [
-            'infra/guides/boilerplates',
+            'infra/guides/dominios',
             {
+              Boilerplates: [
+                'infra/guides/boilerplates/getting-started',
+                {
+                  CI: [
+                    'infra/guides/boilerplates/pm2',
+                    'infra/guides/boilerplates/s3',
+                    'infra/guides/boilerplates/ecs'
+                  ]
+                }
+              ],
               Nginx: [
                 'infra/use-cases/nginx/default-config',
                 'infra/use-cases/nginx/https',
